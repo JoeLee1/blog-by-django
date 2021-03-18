@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block title %} 登录 {% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+                
+            <br> 
+            <h1 style="font-weight: bold;"> 欢迎登陆</h1>      
+            <br>
+            <br>
+            <form method="post" action=".">
+                {% csrf_token %}
+                <!-- 账号 -->
+                <div class="form-group col-md-5">
+                    <label for="username">账号</label>
+                    <input type="text" class="form-control" id="username" name="username" value placeholder="请输入账号"  >
+                </div>
+                <!-- 密码 -->
+                <div class="form-group col-md-5">
+                    <label for="password">密码</label>
+                    <input type="password" class="form-control" id="password" name="password" value placeholder="请输入密码" >
+                </div>
+                <!-- 提交按钮 -->
+                <br>
+                <button type="submit" class="btn btn-primary" style="margin-left: 1%;">登录</button>
+            </form>
+
+
+                <br>
+                <br>
+                <br>
+                
+                    <h6 style="margin-left: 1%;">还没有账号？</h6>
+                    <h6 style="margin-left: 1%;"><a href='{% url "userprofile:register" %}' >注册账号</a></h6>
+                <br>
+
+           
+                
+                <h6 style="margin-left: 1%;">忘记密码了？</h6>
+                <h6 style="margin-left: 1%;"><a href='{% url "password_reset_recover" %}'>重置密码</a></h6>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
